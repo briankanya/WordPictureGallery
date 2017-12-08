@@ -4,6 +4,7 @@ var concat = require('gulp-concat');
 var minifyCSS = require('gulp-clean-css');
 var htmlmin = require('gulp-htmlmin');
 var gutil = require('gulp-util');
+var browserify = require('browserify');
 var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
 	
