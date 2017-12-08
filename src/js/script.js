@@ -33,7 +33,9 @@ function populateImages() {
 			array = JSON.parse(results);
 
 			for(var image in array) {
-				$("#gallery").append(returnTemplate(image.url, word));
+				$("#gallery").fadeOut(1000, function() {
+					$("#gallery").empty().append(returnTemplate(image.url, word)).fadeIn();
+				});
 			}
 		}
 	});
