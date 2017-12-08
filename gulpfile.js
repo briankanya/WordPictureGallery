@@ -4,6 +4,8 @@ var concat = require('gulp-concat');
 var minifyCSS = require('gulp-clean-css');
 var htmlmin = require('gulp-htmlmin');
 var gutil = require('gulp-util');
+var source = require('vinyl-source-stream');
+var buffer = require('vinyl-buffer');
 	
 gulp.task('css', function() {
     gulp.src([
@@ -15,12 +17,11 @@ gulp.task('css', function() {
 });
 
 gulp.task('js', function() {
-    gulp.src([
-            './src/js/**/*.js'
-        ])
+    return browserify('./src/js/script.js')
+        .bundle()
+        .pipe(source('bundle.js'))
+        .pipe(buffer())
         .pipe(uglify())
-		.on('error', function (err) { gutil.log(gutil.colors.red('[Error]'), err.toString()); })
-        .pipe(concat('script.js'))
         .pipe(gulp.dest('./dist/js'));
 });
 
