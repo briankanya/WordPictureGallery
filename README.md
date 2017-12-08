@@ -1,2 +1,4 @@
 # ShoppingCart
-Ramaswamy Shopping Cart
+Ramaswamy Website Final Project
+
+https://bkanya.me/WordPictureGallery
