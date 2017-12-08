@@ -7,7 +7,6 @@ var gutil = require('gulp-util');
 var browserify = require('browserify');
 var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
-var fs = require('fs');
 	
 gulp.task('css', function() {
     gulp.src([
@@ -20,7 +19,6 @@ gulp.task('css', function() {
 
 gulp.task('js', function() {
     return browserify('./src/js/script.js')
-        .transform('brfs')
         .bundle()
         .pipe(source('bundle.js'))
         .pipe(buffer())
