@@ -26,6 +26,7 @@ $(document).ready(function() {
 
 function setWord() {
 	word = randomWord();
+	$("#random-word").text("Random Word: " + word);
 }
 
 function populateImages() {
