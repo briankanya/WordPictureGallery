@@ -1,6 +1,8 @@
 'use strict';
 
-var gis = require('g-i-s');
+var GoogleImages = require('google-images'); 
+ 
+var client = new GoogleImages('000056057431469035473:udlnkwbrzyy', 'AIzaSyBQeZ_iU0xnDtgNPZadbWsnkT1V3zADVEI'); 
 
 var htmlTemplate = `
 	<div class="card">
@@ -29,20 +31,13 @@ function setWord() {
 }
 
 function populateImages() {
-	gis(word, function(error, results) {
-		if(error) {
-			console.log(error);
-		}
-		if(results) {
-			console.log("Results:", results);
-			array = JSON.parse(results);
-			console.log("Array:", array);
+	client.search(word).then(images => {
+		array = JSON.parse(images);
 
-			for(var image in array) {
-				$("#gallery").fadeOut(1000, function() {
-					$("#gallery").empty().append(returnTemplate(image.url, word)).fadeIn();
-				});
-			}
+		for(var image in array) {
+			$("#gallery").fadeOut(1000, function() {
+				$("#gallery").empty().append(returnTemplate(image.url, word)).fadeIn();
+			});
 		}
 	});
 }
