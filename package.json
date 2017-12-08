@@ -4,7 +4,7 @@
     "gulp-clean-css": "^3.9.0",
     "gulp-concat": "^2.6.1",
     "gulp-htmlmin": "^3.0.0",
-    "gulp-uglify-es": "^0.1.7",
+    "gulp-uglify-es": "^0.1.8",
     "gulp-util": "^3.0.8"
   },
   "devDependencies": {
