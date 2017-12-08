@@ -1,3 +1,5 @@
+'use strict';
+
 var gis = require('g-i-s');
 
 var htmlTemplate = `
