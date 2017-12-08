@@ -1,4 +1,4 @@
-var freeGoogleImageSearch = require("free-google-image-search");
+var gis = require('g-i-s');
 
 var htmlTemplate = `
 	<div class="card">
@@ -7,6 +7,7 @@ var htmlTemplate = `
 `;
 
 var word;
+var array;
 
 $(document).ready(function() {
 	$("body").keyup(function(e) {
@@ -22,13 +23,22 @@ function setWord() {
 }
 
 function populateImages() {
-	for(var imageUrl in returnImages(word)) {
-		$("#gallery").append(returnTemplate(imageUrl, word));
-	}
+	gis(word, function(error, results) {
+		if(error) {
+			console.log(error);
+		}
+		if(results) {
+			array = JSON.parse(results);
+
+			for(var image in array) {
+				$("#gallery").append(returnTemplate(image.url, word));
+			}
+		}
+	});
 }
 
 function returnImages(word) {
-	freeGoogleImageSearch.default.searchImage(word).then(function(res) {
+	GoogleImageSearch.default.searchImage(word).then(function(res) {
 		return res;
 	});
 }
