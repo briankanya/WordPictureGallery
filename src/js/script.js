@@ -2,19 +2,11 @@
 
 var setImmediate = require('setimmediate');
 
-var _reduxPersist = require('redux-persist');
-
-var timers = require('timers');
-
 var GoogleImages = require('google-images'); 
  
 var client = new GoogleImages('000056057431469035473:udlnkwbrzyy', 'AIzaSyBQeZ_iU0xnDtgNPZadbWsnkT1V3zADVEI'); 
 
-var htmlTemplate = `
-	<div class="card">
-		<img src="%imageUrl%" alt="%searchTerm%">
-	</div>
-`;
+var htmlTemplate = '<div class="card img-fluid"><img src="%imageUrl%" alt="%searchTerm%"></div>';
 
 var word;
 var htmlString;
@@ -40,18 +32,16 @@ function populateImages() {
 	htmlString = "";
 
 	client.search(word).then(images => {
-		console.log("Images: ", images);
-
-		for(var image in images) {
-			htmlString += returnTemplate(image.url, word);
+		for(var imageIndex in images) {
+			htmlString = htmlString.concat(returnTemplate(images[imageIndex].url, word));
 		}
-	});
 
-	$("#gallery").fadeOut(1000, function() { 
-        $("#gallery").empty().append(htmlString).fadeIn(); 
-    }); 
+		$("#gallery").hide().html(htmlString).fadeIn("slow");
+	});
 }
 
 function returnTemplate(imageUrl, searchItem) {
-	return htmlTemplate.replace("%imageUrl%", imageUrl).replace("%searchItem%", searchItem);
+	var html = htmlTemplate.replace("%imageUrl%", imageUrl);
+	html = html.replace("%searchTerm%", searchItem);
+	return html;
 }
