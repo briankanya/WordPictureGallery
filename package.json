@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "brfs": "^1.4.3",
     "browserify": "^14.5.0",
     "g-i-s": "^2.1.1",
     "gulp-clean-css": "^3.9.0",
@@ -8,7 +7,6 @@
     "gulp-htmlmin": "^3.0.0",
     "gulp-uglify-es": "^0.1.8",
     "gulp-util": "^3.0.8",
-    "random-word": "^2.0.0",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"
   },
