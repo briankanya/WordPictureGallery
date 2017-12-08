@@ -1,7 +1,6 @@
 'use strict';
 
 var gis = require('g-i-s');
-var randomWord = require('random-word');
 
 var htmlTemplate = `
 	<div class="card">
@@ -25,7 +24,7 @@ $(document).ready(function() {
 });
 
 function setWord() {
-	word = randomWord();
+	word = chance.word();
 	$("#random-word").text("Random Word: " + word);
 }
 
