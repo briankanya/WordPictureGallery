@@ -1,6 +1,10 @@
 'use strict';
 
-var gis = require('g-i-s');
+// var GoogleImages = require('google-images');
+
+// var client = new GoogleImages('000056057431469035473:udlnkwbrzyy', 'AIzaSyBQeZ_iU0xnDtgNPZadbWsnkT1V3zADVEI');
+
+var gis = require('g=i-s');
 
 var htmlTemplate = `
 	<div class="card">
