@@ -1,10 +1,7 @@
 'use strict';
 
-// var GoogleImages = require('google-images');
-
-// var client = new GoogleImages('000056057431469035473:udlnkwbrzyy', 'AIzaSyBQeZ_iU0xnDtgNPZadbWsnkT1V3zADVEI');
-
-var gis = require('g=i-s');
+var gis = require('g-i-s');
+var randomWord = require('random-word');
 
 var htmlTemplate = `
 	<div class="card">
@@ -16,6 +13,9 @@ var word;
 var array;
 
 $(document).ready(function() {
+	setWord();
+	populateImages();
+
 	$("body").keyup(function(e) {
 		if(e.keyCode == 32){
 			setWord();
@@ -25,7 +25,7 @@ $(document).ready(function() {
 });
 
 function setWord() {
-	word = chance.word();
+	word = randomWord();
 }
 
 function populateImages() {
@@ -34,7 +34,9 @@ function populateImages() {
 			console.log(error);
 		}
 		if(results) {
+			console.log("Results:", results);
 			array = JSON.parse(results);
+			console.log("Array:", array);
 
 			for(var image in array) {
 				$("#gallery").fadeOut(1000, function() {
