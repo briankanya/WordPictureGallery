@@ -1,5 +1,11 @@
 'use strict';
 
+var setImmediate = require('setimmediate');
+
+var _reduxPersist = require('redux-persist');
+
+var timers = require('timers');
+
 var GoogleImages = require('google-images'); 
  
 var client = new GoogleImages('000056057431469035473:udlnkwbrzyy', 'AIzaSyBQeZ_iU0xnDtgNPZadbWsnkT1V3zADVEI'); 
@@ -11,7 +17,7 @@ var htmlTemplate = `
 `;
 
 var word;
-var array;
+var htmlString;
 
 $(document).ready(function() {
 	setWord();
@@ -31,15 +37,19 @@ function setWord() {
 }
 
 function populateImages() {
-	client.search(word).then(images => {
-		array = JSON.parse(images);
+	htmlString = "";
 
-		for(var image in array) {
-			$("#gallery").fadeOut(1000, function() {
-				$("#gallery").empty().append(returnTemplate(image.url, word)).fadeIn();
-			});
+	client.search(word).then(images => {
+		console.log("Images: ", images);
+
+		for(var image in images) {
+			htmlString += returnTemplate(image.url, word);
 		}
 	});
+
+	$("#gallery").fadeOut(1000, function() { 
+        $("#gallery").empty().append(htmlString).fadeIn(); 
+    }); 
 }
 
 function returnTemplate(imageUrl, searchItem) {
