@@ -18,7 +18,7 @@ gulp.task('css', function() {
 });
 
 gulp.task('js', function() {
-    return browserify('./src/js/script.js')
+    return browserify('./src/js/bundle.js')
         .bundle()
         .pipe(source('bundle.js'))
         .pipe(buffer())
