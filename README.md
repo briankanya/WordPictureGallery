@@ -1,7 +1,7 @@
 # Word Picture Gallery
 Ramaswamy Website Final Project
 
-https://bkanya.me/WordPictureGallery
+https://bkanya.me/Sites/WordPictureGallery
 
 https://briankanya.github.io/WordPictureGallery/dist/
 
