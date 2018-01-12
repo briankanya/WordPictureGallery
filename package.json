@@ -1,11 +1,11 @@
 {
   "dependencies": {
-    "browserify": "^15.0.0",
+    "browserify": "^15.1.0",
     "google-images": "^2.1.0",
     "gulp-clean-css": "^3.9.2",
     "gulp-concat": "^2.6.1",
     "gulp-htmlmin": "^4.0.0",
-    "gulp-uglify-es": "^0.1.9",
+    "gulp-uglify-es": "^0.2.0",
     "gulp-util": "^3.0.8",
     "redux": "^3.7.2",
     "redux-persist": "^5.4.0",
