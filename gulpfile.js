@@ -9,7 +9,7 @@ var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
 	
 gulp.task('css', function() {
-    gulp.src([
+    return gulp.src([
             './src/css/**/*.css'
         ])
         .pipe(minifyCSS())
@@ -27,7 +27,7 @@ gulp.task('js', function() {
 });
 
 gulp.task('html', function() {
-	gulp.src([
+	return gulp.src([
             './src/*.html'
         ])
         .pipe(htmlmin({collapseWhitespace: true}))
@@ -35,11 +35,10 @@ gulp.task('html', function() {
 });
 
 gulp.task('extra', function() {
-    gulp.src([
-            './src/favicon.ico',
-			'./src/.htaccess'
+    return gulp.src([
+            './src/favicon.ico'
         ])
         .pipe(gulp.dest('./dist/'));
 });
 
-gulp.task('default', ['css', 'js', 'html', 'extra']);
+gulp.task('default', gulp.parallel('css', 'js', 'html', 'extra'));
