@@ -2,7 +2,7 @@
   "dependencies": {
     "browserify": "^16.2.3",
     "google-images": "^2.1.0",
-    "gulp-clean-css": "^3.10.0",
+    "gulp-clean-css": "^4.2.0",
     "gulp-concat": "^2.6.1",
     "gulp-htmlmin": "^5.0.1",
     "gulp-uglify-es": "^1.0.4",
@@ -15,8 +15,8 @@
     "vinyl-source-stream": "^2.0.0"
   },
   "devDependencies": {
-    "graceful-fs": "^4.1.11",
-    "gulp": "^4.0.0",
+    "graceful-fs": "^4.1.15",
+    "gulp": "^4.0.2",
     "minimatch": "^3.0.4"
   }
 }
