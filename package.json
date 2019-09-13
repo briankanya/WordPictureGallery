@@ -1,21 +1,21 @@
 {
   "dependencies": {
-    "browserify": "^16.2.3",
+    "browserify": "^16.5.0",
     "google-images": "^2.1.0",
     "gulp-clean-css": "^4.2.0",
     "gulp-concat": "^2.6.1",
     "gulp-htmlmin": "^5.0.1",
     "gulp-uglify-es": "^1.0.4",
     "gulp-util": "^3.0.8",
-    "redux": "^4.0.1",
-    "redux-persist": "^5.10.0",
+    "redux": "^4.0.4",
+    "redux-persist": "^6.0.0",
     "setimmediate": "^1.0.5",
     "timers": "^0.1.1",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0"
   },
   "devDependencies": {
-    "graceful-fs": "^4.1.15",
+    "graceful-fs": "^4.2.2",
     "gulp": "^4.0.2",
     "minimatch": "^3.0.4"
   }
